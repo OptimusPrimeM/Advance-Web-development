@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Arrow Function</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/mdbootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="node_modules/mdbootstrap/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="node_modules/mdbootstrap/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- AXIOS   -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <p>Arrow Function</p>
+        <script>
+
+            let sumResult = (x, y) => x + y;
+
+            console.log(sumResult(10, 20));
+
+            let result = (arr) => arr.map(value => value * 2);
+            console.log(result([10, 20, 40]));
+
+            let doubleAndDivisible = (arr) => arr.map(value => value * 2).filter(num => num % 3 === 0)
+            console.log(doubleAndDivisible([10, 15, 40]));
+
+            /* Using of arrow funtction and normal ES5 function*/
+            let autobots = {
+                firstName: "Oprimus",
+                sayHi: function () {
+                    setTimeout(function () {
+                        console.log(`Hello ${this.firstName}`);
+                    }, 1000);
+                }
+            }
+
+            autobots.sayHi();  //=> Hello undefined
+
+            /* Fix with ES5*/
+            let autobots_1 = {
+                firstName: "Oprimus",
+                sayHi: function () {
+                    setTimeout(function () {
+                        console.log(`Hello ${this.firstName}`);
+                    }.bind(this), 1000);
+                }
+            }
+            autobots_1.sayHi();
+
+            /*Using Arrow function*/
+
+            let autobots_2 = {
+                firstName: "Oprimus",
+                sayHi: function () {
+                    setTimeout(() => {
+                        console.log(`Hello ${this.firstName}`);
+                    }, 1000);
+                }
+            }
+
+            autobots_2.sayHi();
+
+
+            let autobots_3 = {
+                firstName: "Oprimus",
+                sayHi: () => {
+                    setTimeout(() => {
+                        console.log(`Hello ${this.firstName}`);
+                    }, 1000);
+                }
+            }
+
+            autobots_3.sayHi();
+
+            /*Arrow functoin s don't have own argument property*/
+
+            let add = (a, b) => {
+                return arguments;
+            }
+
+            console.log(add(10, 20));
+
+            /*Can access outer function args*/
+
+            function outer() {
+                return innerFunction = () => {
+                    return arguments;
+                }
+            }
+
+            outer(10)(20);  // => only output 10
+
+        </script>
+
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
+    <!-- <script type="text/javascript" src="jQuery.js"></script> -->
+
+</body>
+
+</html>

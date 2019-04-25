@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>bject Enhancement</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/mdbootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="node_modules/mdbootstrap/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="node_modules/mdbootstrap/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- AXIOS   -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <p>Object Enhancement</p>
+        <script>
+
+
+            /*============= 1 . Object shorthand notation===================*/
+            const firstName = "Optimus";
+            const lastName = "Prime";
+
+            /*ES5*/
+            let instructor = {
+                firstName: firstName,
+                lastName: lastName
+            };
+
+
+            console.log(`First name = ${instructor.firstName}`);
+            console.log(`Last name = ${instructor.lastName}`);
+
+            /*ES2015*/
+            instructor = {
+                firstName,
+                lastName
+            }
+
+
+            console.log(`First name = ${instructor.firstName}`);
+            console.log(`Last name = ${instructor.lastName}`);
+
+
+            /*=============== 2 . Object method ====================== */
+
+            /*ES5*/
+            let autobots = {
+                sayHello: function () {
+                    return "Hello";
+                }
+            }
+
+            console.log(`ES5 = ${autobots.sayHello()}`);
+
+            /*ES2015*/
+            autobots = {
+                sayHello() {
+                    return "Hello";
+                }
+            }
+
+            console.log(`ES2015 = ${autobots.sayHello()}`);
+
+            /*============= 3 . Computed property names===================*/
+
+            /*ES5*/
+            const fName = "Menik";
+            let instru = {};
+            instru[fName] = "That's me!";
+
+            console.log(`ES5 = ${instru.Menik}`);
+
+            /*ES2015*/
+            instru = {
+                 [fName] : "That's me!"
+            }
+
+            console.log(`ES2015 = ${instru.Menik}`);
+
+        </script>
+
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
+    <!-- <script type="text/javascript" src="jQuery.js"></script> -->
+
+</body>
+
+</html>

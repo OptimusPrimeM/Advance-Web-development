@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>let</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/mdbootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="node_modules/mdbootstrap/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="node_modules/mdbootstrap/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- AXIOS   -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <p>let keyword</p>
+        <script>
+
+            var name = "Menik";
+
+            if (name === "Menik") {
+                let i = 10;
+            }
+
+            // console.log("Accessing let " + i);  This will give an error
+
+
+            // Hoisting
+            function demoHoisting() {
+                return autobot;
+                var autobot = 'prime';
+            }
+
+            console.log(demoHoisting());
+
+            // Function hoisting with let keyword  
+            function demoHoistingWithLet() {
+                return autobot;
+                let autobot = 'prime';
+            }
+
+            /*
+
+            This will give an error -> Uncaught ReferenceError: autobot is not defined
+            console.log(demoHoistingWithLet());
+            */
+
+
+
+            // Usability of let keyword
+
+            for (var i = 0; i < 5; i++) {
+                setTimeout(function () {
+                    console.log(i);
+                }, 1000);
+            }
+
+            //Solution for this withour let keyword
+            for (var i = 0; i < 5; i++) {
+                (function (j) {
+                    setTimeout(function () {
+                        console.log(j);
+                    }, 1000);
+                })(i)
+
+            }
+
+            // Using let keyword
+            for (let i = 0; i < 5; i++) {
+                setTimeout(function () {
+                    console.log(i);
+                }, 1000);
+
+            }
+
+
+        </script>
+
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
+    <!-- <script type="text/javascript" src="jQuery.js"></script> -->
+
+</body>
+
+</html>

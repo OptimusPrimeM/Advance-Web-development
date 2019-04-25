@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Object Distructuring</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/mdbootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="node_modules/mdbootstrap/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="node_modules/mdbootstrap/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- AXIOS   -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <p>Object Distructuring</p>
+        <script>
+            let autobots = {
+                firstName: 'Optimus',
+                lastName: 'Prime'
+            };
+
+            /*ES5*/
+            let firstName = autobots.firstName;
+            let lastName = autobots.lastName;
+
+            console.log(`firstName ${firstName}`);
+            console.log(`lastName ${lastName}`);
+
+            /*Object destructing ES2015*/
+
+            autobots = {
+                firstName_1: 'Optimus',
+                lastName_1: 'Prime'
+            };
+
+            let { firstName_1, lastName_1 } = autobots;
+
+            console.log(`firstName ${firstName_1}`);
+            console.log(`lastName ${lastName_1}`);
+
+            /*With different variable names*/
+            let { firstName_1: first, lastName_1: last } = autobots;
+
+            console.log(`firstName ${first}`);
+            console.log(`lastName ${last}`);
+
+
+            /*Work with more complex objects*/
+
+            /*ES5*/
+            function createInstructor(options) {
+                var options = options || {};
+                var name = options.name || { first: 'optimus', last: 'prime' };
+                var isHilarious = options.isHilarious || false;
+
+                return [name.first, name.last, isHilarious];
+            }
+
+            console.log(`ES5 ${createInstructor()}`);
+            console.log(`ES5 ${createInstructor({ isHilarious: true })}`);
+            console.log(`ES5 ${createInstructor({ name: { first: 'menik', last: 'tennakoon' } })}`);
+
+            /*ES2015*/
+            function createInstructor1({ name = { first: 'optimus', last: 'prime' }, isHilarious = true } = {}) {
+                return [name.first, name.last, isHilarious];
+            }
+
+            
+            console.log(`ES2015 ${createInstructor()}`);
+            console.log(`ES2015 ${createInstructor({ isHilarious: true })}`);
+            console.log(`ES2015 ${createInstructor({ name: { first: 'menik', last: 'tennakoon' } })}`);
+
+
+
+
+        </script>
+
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
+    <!-- <script type="text/javascript" src="jQuery.js"></script> -->
+
+</body>
+
+</html>
