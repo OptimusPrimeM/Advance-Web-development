@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>For each</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/mdbootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="node_modules/mdbootstrap/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="node_modules/mdbootstrap/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- AXIOS   -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <p>forEach function</p>
+        <script>
+            let arr = [1, 2, 3];
+
+            arr.forEach((value, index, array) => {
+                console.log(value, index, array);
+            });
+
+            // Custom forEch function
+
+            let customForEach = (arr, callBack) => {
+
+                for (let i = 0; i < arr.length; i++) {
+                    callBack(arr[i], i, arr);
+                }
+
+            };
+
+
+
+            let callBack = (value, index, array) => {
+                console.log(value, index, array);
+            }
+
+            customForEach(arr, callBack);
+
+            // using forEach inside of a function
+
+            let halfValue = (arr) => {
+                let newArray = [];
+
+                arr.forEach(number => {
+                    newArray.push(number / 2);
+                });
+
+                return newArray;
+            };
+
+            console.log("Half Value array = " + halfValue(arr));
+
+
+            //   Assignments
+            let doubleValue = (arr) => {
+                let newArray = [];
+
+                arr.forEach(number => {
+                    newArray.push(number * 2);
+                });
+
+                return newArray;
+
+            }
+
+            console.log("Double Value array = " + doubleValue(arr));
+
+
+            let onlyEvenValue = (arr) => {
+                let newArray = [];
+
+                arr.forEach(number => {
+                    if (number % 2 === 0)
+                        newArray.push(number);
+                });
+
+                return newArray;
+
+            }
+
+            console.log("Only even Value array = " + onlyEvenValue(arr));
+
+            let arrOfString = ['optimus', 'prime', 'ironhide'];
+
+            let onlyFirstAndLast = (arr) => {
+                let newArray = [];
+
+                arr.forEach(name => {
+
+                    let words = name.split('');
+                    console.log(words);
+                    newArray.push(words[0] + words[words.length - 1]);
+                });
+
+                return newArray;
+
+            }
+
+            console.log("Only first and last character = " + onlyFirstAndLast(arrOfString));
+
+            let addKeyAndValue = (arr, key, value) => {
+
+                arr.forEach(name => {
+                    name[key] = value;
+                });
+
+                return arr;
+
+            }
+
+            console.log("Add key and value = " + addKeyAndValue(arrOfString, 1, 10));
+
+
+            let vowelCount = (str) => {
+
+                let words = str.toLowerCase().split('');
+                let regex = /[^\a\e\i\o\u]/g;
+                let count = 0;
+
+                words.forEach(character => {
+                    if (character.search(regex))
+                        count += 1;
+                });
+
+                return count;
+            };
+
+
+            console.log("Vowel Count = " + vowelCount("Aeiou"));
+
+        </script>
+
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
+    <!-- <script type="text/javascript" src="jQuery.js"></script> -->
+
+</body>
+
+</html>

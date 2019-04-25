@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>reduce</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/mdbootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="node_modules/mdbootstrap/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="node_modules/mdbootstrap/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- AXIOS   -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <p>reduce function</p>
+        <script>
+
+            let arr = [1, 2, 3, 4, 5];
+
+            let result = arr.reduce((accumulator, nextValue) => {
+                return accumulator + nextValue;
+            })
+
+            console.log(result);
+
+            result = arr.reduce((accumulator, nextValue) => {
+                return accumulator + nextValue;
+            }, 10)
+
+            console.log(result);
+
+            // Convert to differevt data types
+            let stringArr = ["Tim", "Matt", "Colt", "Elie"];
+
+            result = stringArr.reduce((accumulator, nextValue) => {
+                return accumulator += " " + nextValue;
+            }, "The instructors are ");
+
+
+            console.log(result);
+
+            // Searching number of occures in the array
+
+            let newArray = [5, 4, 1, 4, 5];
+
+            result = newArray.reduce((accumulator, nextValue) => {
+                if (nextValue in accumulator) {
+                    accumulator[nextValue]++
+                } else {
+                    accumulator[nextValue] = 1
+                }
+
+                return accumulator;
+            }, {})
+
+            console.log(result);
+
+            let addOddNumbers = (arr) => {
+                return arr.reduce((accumulator, nextValue) => {
+                    if (nextValue % 2 !== 0) {
+                        console.log(nextValue);
+                        accumulator += nextValue;
+
+                    }
+
+                    return accumulator;
+
+                }, 0);
+            }
+
+
+
+            console.log(addOddNumbers(newArray));
+
+
+            let arrayOfFullName = (arr) => {
+                return arr.reduce((accumulator, nextValue) => {
+                    accumulator.push(nextValue['first'] + " " + nextValue['last']);
+                    return accumulator;
+                }, []);
+
+            }
+
+            console.log(arrayOfFullName(
+                [
+                    {
+                        first: "Optimus",
+                        last: "Prime"
+                    },
+                    {
+                        first: "Iron",
+                        last: "Hide"
+                    }
+                ]));
+
+
+            let extractValue = (arr, key) => {
+                return arr.reduce((accumulator, nextValue) => {
+                    accumulator.push(nextValue[key]);
+                    return accumulator;
+                }, []);
+            }
+
+            console.log(extractValue(
+                [
+                    {
+                        first: "Optimus",
+                        last: "Prime"
+                    },
+                    {
+                        first: "Iron",
+                        last: "Hide"
+                    }
+                ], 'first'));
+
+
+            let vowelCount = (str) => {
+
+                let vowels = 'aeiou';
+
+                str.split('').reduce((accumulator, nextValue) => {
+                    if (vowels.indexOf(nextValue.toLowerCase() !== -1)) {
+                        if (nextValue in accumulator) {
+                            accumulator[next]++
+                        } else {
+                            accumulator[next] = 1;
+                        }
+                    }
+
+                    return accumulator;
+                }, {})
+            }
+
+            let addValueAndKey = (arr, key, value) => {
+                return arr.reduce((accumulator, nextValue, index) => {
+                    accumulator[index][key] = value;
+                    return accumulator;
+                }, arr);
+            }
+
+            let partition = (arr, callBack) => {
+                arr.reduce((accumulator, nextValue) => {
+                    if (callBack(nextValue)) {
+                        accumulator[0].push(nextValue)
+                    } else {
+                        accumulator[1].push(nextValue)
+                    }
+
+                     return accumulator;
+                }, [[], []]);
+            }
+
+
+
+
+        </script>
+
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
+    <!-- <script type="text/javascript" src="jQuery.js"></script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>map</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/mdbootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="node_modules/mdbootstrap/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="node_modules/mdbootstrap/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- AXIOS   -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <p>map function</p>
+        <script>
+            let arr = [1, 2, 3];
+
+            let newArray = arr.map((value, index, array) => {
+                return value * 2;
+            });
+
+            console.log(newArray);
+
+            // Custom map
+
+            let customMap = (arr, callBack) => {
+
+                let newArray = [];
+
+                arr.forEach(element => {
+                    newArray.push(callBack(element));
+                });
+
+
+                console.log(newArray);
+
+            };
+
+            let callBack = (numb) => { return numb * 2; }
+
+            customMap(arr, callBack);
+
+
+            // Using map inside of a function
+
+            let tripleValues = (arr) => {
+
+                return arr.map(value => {
+                    return value * 3;
+                });
+
+            };
+
+            console.log(tripleValues(arr));
+
+
+            let objArr = [{ first: "Optimus", second: "prime" }, { first: "Iron", second: "Hide" }];
+            let onlyFirstName = (arr) => {
+
+                return arr.map((value) => {
+                    return value.first;
+                });
+
+            };
+
+            console.log(onlyFirstName(objArr));
+
+            let doubleValue = (arr) => {
+
+                return arr.map((value) => {
+                    return value * 2;
+                });
+
+            };
+
+            console.log("Double value =" + doubleValue(arr));
+
+
+            let valueTimesIndex = (arr) => {
+
+                return arr.map((value, index) => {
+                    return value * index;
+                });
+
+            };
+
+            console.log("Value Times Index =" + valueTimesIndex(arr));
+
+            let extractKey = (arr, key) => {
+
+                return arr.map((value) => {
+                    return value[key];
+                });
+
+            };
+
+            console.log("Extract Key =" + extractKey(arr, 1));
+
+
+            let fullName = (arr) => {
+
+                return arr.map((value) => {
+                    return value.first + " " + value.second;
+                });
+
+            };
+
+            console.log("Full name = " + fullName(objArr));
+
+
+
+
+
+        </script>
+
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
+    <!-- <script type="text/javascript" src="jQuery.js"></script> -->
+
+</body>
+
+</html>

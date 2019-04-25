@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>filter</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/mdbootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="node_modules/mdbootstrap/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="node_modules/mdbootstrap/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- AXIOS   -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <p>flter function</p>
+        <script>
+            let arr = [1, 2, 3];
+
+            let filerFunction = arr.filter((value, index, array) => {
+                return value >= 2;
+            });
+
+            console.log(filerFunction);
+
+            let obgArr = [
+                { name: "Elie" },
+                { name: "Tim" },
+                { name: "Matt" },
+                { name: "Colt" }
+            ];
+
+            let arryWithThreeChara = obgArr.filter(value => {
+                return value['name'].length > 3;
+            });
+
+            console.log(arryWithThreeChara);
+
+
+            // Custom filter function
+
+
+
+            let customeFilter = (arr, callBack) => {
+                let newArray = [];
+                arr.forEach(value => {
+                    if (callBack(value.name)){
+                        console.log(value);
+                        newArray.push(value.name);
+                    }
+                        
+                });
+
+                return newArray;
+            };
+
+            let lengthGreaterThanThree = (name) => {
+                return (name.length > 3);
+            };
+
+
+            console.log("Custom filter function = " + customeFilter(obgArr, lengthGreaterThanThree));
+
+            // Using filter in function
+
+            let obgArrString = [
+                "Elie",
+                "Tim",
+                "Matt",
+                "Colt"
+            ];
+
+            let onlyFourLetterName = (arr) => {
+                return arr.filter(value => {
+                    return value.length === 4;
+                });
+            }
+
+            console.log("filter inside a function = " + onlyFourLetterName(obgArrString));
+
+
+
+
+        </script>
+
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
+    <!-- <script type="text/javascript" src="jQuery.js"></script> -->
+
+</body>
+
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>every</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link href="node_modules/mdbootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="node_modules/mdbootstrap/css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="node_modules/mdbootstrap/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/2.6.2/jasmine.css">
+
+    <!-- Custom css -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- AXIOS   -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <p>every function</p>
+        <script>
+
+            const arr = [-1, -2, -3];
+
+            let result = arr.every((value, index, array) => {
+                return value < 0;
+            });
+
+            console.log(result);
+
+            // Create custom every() function
+
+            let customEvery = (arr) => {
+
+                for (let i = 0; i < arr.length; i++) {
+                    lessThanZero(arr[i]);
+                }
+                return true;
+            };
+
+
+            let lessThanZero = (element) => {
+                if (!(element < 0))
+                    return false
+            };
+
+
+            console.log(customEvery(arr));
+
+            // every() inside a function
+
+            let isAllLowerCase = (checkString) => {
+
+                return checkString.split().every(value => {
+                    return value === value.toLowerCase();
+                });
+
+            };
+
+            console.log("Lower case " + isAllLowerCase("adAda"));
+
+            // Checking every elements of the array are arrays
+
+            let allArray = (arr) => {
+                return arr.every(Array.isArray);
+            };
+
+            console.log("Cheking for elements =" + allArray([[1], [5, 6], [7, 8, 5]]));
+            console.log("Cheking for elements =" + allArray([[1], [5, 6], 5]));
+
+            // Has a odd number
+            let hasOddNumber = (arr) => {
+
+                return arr.some(value => {
+                    return value % 2 === 1;
+                });
+            };
+
+            console.log("Has odd number = " + hasOddNumber([1, 4, 8, 6]));
+
+
+            // Has a zero
+            let hasAZero = (arr) => {
+                return arr.some(value => {
+                    return value === 0;
+                });
+
+            };
+
+            console.log("Has a zero [1,0,8,6] = " + hasAZero([1, 0, 8, 6]));
+            console.log("Has a zero [1,5,8,6] = " + hasAZero([1, 5, 8, 6]));
+
+            // Has a only odd numbers
+
+            let hasOnlyOdd = (arr) => {
+                return arr.every(value => {
+                    return value % 2 === 0;
+                });
+
+            };
+
+            console.log("Has only odd [2,0,8,6] = " + hasOnlyOdd([2, 0, 8, 6]));
+            console.log("Has only odd [1,5,8,6] = " + hasOnlyOdd([1, 5, 8, 6]));
+
+            // Function hasNoDuplicate
+
+            let hasNoDuplicate = (arr) => {
+
+                return arr.every(value => {
+                    return arr.indexOf(value) === arr.lastIndexOf(value);
+                });
+
+            }
+
+            console.log("Has no duplication [2,0,8,6] = " + hasNoDuplicate([2, 0, 8, 6]));
+            console.log("Has no duplication [2,2,8,6] = " + hasNoDuplicate([2, 2, 8, 6]));
+
+            // Ckeck for has certain key in every object in an array
+
+            let hasCertainKey = (arr, key) => {
+                return arr.every(value => {
+                    return value in key;
+                });
+            }
+
+
+            // Ckeck for has certain value in every object in an array
+
+            let hasCertainKey = (arr, key, val) => {
+                return arr.every(value => {
+                    return value[key] === val;
+                });
+            }
+
+
+        </script>
+
+    </div>
+
+
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
+    <!-- <script type="text/javascript" src="jQuery.js"></script> -->
+
+</body>
+
+</html>
